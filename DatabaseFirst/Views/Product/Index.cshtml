@@ -1,0 +1,62 @@
+﻿<div class="alert alert-primary">
+    <div class="colm-md-4">
+        <h4>Productos</h4>
+        <button class="btn btn-primary">Agregar Producto</button>
+    </div>
+</div>
+
+<div id="listadoProductos">
+
+</div>
+
+<script>
+    listarProductos();
+    function listarProductos() {
+
+        $.ajax({
+            type: "GET",
+            url: '@Url.Action("ListadoProductos","Product")',
+            cache: false,
+            success: function (dataHtml) {
+                $("#listadoProductos").html(dataHtml);
+            }
+        });
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+    /*$("#listadoProductos").on("click", ".btnEliminarProducto", function () {
+        let vIdProduct = $(this).attr("data-id");
+        if (confirm("Esta Seguro?")) {
+            $.ajax({
+                type: "POST",
+                url: Url.Action("Eliminar","Product"),
+                cache: false,
+                data: {
+                    idProduct: vIdProduct
+                },
+                success: function (exito) {
+                    if (exito) {
+                        alert("Se elimino exitosamente");
+                        
+                    } else {
+                        alert("No se elimino exitosamente");
+                    }
+                }
+
+            });
+        }
+        
+    });
+  * /
+
+

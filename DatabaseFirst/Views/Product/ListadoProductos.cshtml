@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Product>
+
+<table id="listaProductos" class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre Producto</th>
+            <th>Cantidad</th>
+            <th>Precio Unitario</th>
+            <th>Paquete</th>
+            <th>Esta Discontinuado</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) { 
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.ProductName</td>
+            <td>@item.SupplierId</td>
+            <td>@item.UnitPrice</td>
+            <td>@item.Package</td>
+            <td>@item.IsDiscontinued</td>
+            <td>
+                <button data-id="@item.Id" class="btn btn-danger btnEliminarProducto">Eliminar</button>
+                <button data-id="@item.Id" class="btn btn-warning btnEditarCliente">Editar</button>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
